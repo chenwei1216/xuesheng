@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
@@ -59,7 +59,7 @@
             font-size: 24px;
         }
 
-        /* 游戏全屏容器（覆盖整个屏幕） */
+        /* 游戏全屏容器（保留但不用） */
         #gameFullContainer {
             display: none;
             position: fixed;
@@ -103,7 +103,7 @@
                 <div class="object" id="object_one"></div>
                 <div class="object" id="object_two"></div>
                 <div class="object" id="object_three"></div>
-                <div class="object" id="object_four"></div>
+                <div class="game-container"></div>
             </div>
         </div>
     </div><!--End off Preloader -->
@@ -200,20 +200,20 @@
                     <br>
 
                     <div class="game-list">
-                        <!-- ✅ 路径正确，可正常打开 -->
-                        <div class="game-item" onclick="openGameFull('红树林探险队-弹涂鱼大冒险.html')">
+                        <!-- 全部改成新窗口打开 -->
+                        <div class="game-item" onclick="window.open('https://chenwei1216.github.io/b/')">
                             <span>🌊</span>红树林探险---弹涂鱼大冒险
                         </div>
-                        <div class="game-item" onclick="openGameFull('../../小游戏/行星匹配战.html')">
+                        <div class="game-item" onclick="window.open('https://chenwei1216.github.io/c/')">
                             <span>🪐</span>行星匹配战
                         </div>
-                        <div class="game-item" onclick="openGameFull('../../小游戏/行星身份迷宫.html')">
+                        <div class="game-item" onclick="window.open('https://chenwei1216.github.io/d/')">
                             <span>🧩</span>行星身份迷宫
                         </div>
-                        <div class="game-item" onclick="openGameFull('../../小游戏/行星知识转盘问答.html')">
+                        <div class="game-item" onclick="window.open('https://chenwei1216.github.io/e/')">
                             <span>🎡</span>行星知识转盘小问答
                         </div>
-                        <div class="game-item" onclick="openGameFull('../../物理实验/单摆1.html')">
+                        <div class="game-item" onclick="window.open('https://chenwei1216.github.io/a/')">
                             <span>⚖️</span>物理单摆交互小实验
                         </div>
                     </div>
@@ -222,7 +222,7 @@
             </div>
         </section>
 
-        <!-- 游戏全屏容器 -->
+        <!-- 游戏全屏容器（不用了，保留不影响） -->
         <div id="gameFullContainer">
             <button class="exit-btn" onclick="closeGameFull()">×</button>
             <iframe id="gameFrame"></iframe>
@@ -319,7 +319,7 @@
             .video-container { width: 90%; margin: 40px auto; }
             .video-container h2 { margin-bottom: 20px; text-align: center; }
             .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-            .video-card { cursor: pointer; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.2s; }
+            .video-card { cursor: pointer; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.2; }
             .video-card:hover { transform: translateY(-5px); }
             .cover { position: relative; width: 100%; height: 180px; background: #eee; overflow: hidden; }
             .cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -461,7 +461,7 @@
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
 
-    <!-- 视频播放JS + 游戏全屏控制 -->
+    <!-- 视频播放JS + 游戏全屏控制（已不用iframe） -->
     <script>
         // 视频播放
         const cards = document.querySelectorAll('.video-card');
@@ -496,14 +496,10 @@
 
         // ✅ 恢复青科趣学有效链接
         function openChatWindow() {
-            window.open(
-                "https://www.coze.cn/store/agent/7638896379419148322?bot_id=true",
-                "QingkeChat",
-                "width=420,height=650,top=100,right=50,scrollbars=yes"
-            );
+            window.open("https://www.coze.cn/store/agent/7638896379419148322?bot_id=true", "QingkeChat", "width=420,height=650,top=100,right=50,scrollbars=yes");
         }
 
-        // 打开游戏全屏（所有游戏统一使用）
+        // 打开游戏全屏（保留，已不用）
         function openGameFull(url) {
             const frame = document.getElementById("gameFrame");
             const container = document.getElementById("gameFullContainer");
@@ -511,7 +507,7 @@
             container.style.display = "block";
         }
 
-        // 关闭游戏全屏
+        // 关闭游戏全屏（保留，已不用）
         function closeGameFull() {
             const frame = document.getElementById("gameFrame");
             const container = document.getElementById("gameFullContainer");
