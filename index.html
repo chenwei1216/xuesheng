@@ -10,9 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="logo.png">
 
-    <!--Google Font link-->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
+    <!-- 去掉加载失败的谷歌字体链接 -->
     <link rel="stylesheet" href="assets/css/slick/slick.css">
     <link rel="stylesheet" href="assets/css/slick/slick-theme.css">
     <link rel="stylesheet" href="assets/css/animate.css">
@@ -200,20 +198,20 @@
                     <br>
 
                     <div class="game-list">
-                        <!-- ✅ 路径正确，可正常打开 -->
-                        <div class="game-item" onclick="openGameFull('红树林探险队-弹涂鱼大冒险.html')">
+                        <!-- ✅ 路径全部改为根目录下的小游戏文件夹，去掉了会报错的 ../../ -->
+                        <div class="game-item" onclick="openGameFull('小游戏/红树林探险队-弹涂鱼大冒险.html')">
                             <span>🌊</span>红树林探险---弹涂鱼大冒险
                         </div>
-                        <div class="game-item" onclick="openGameFull('../../小游戏/行星匹配战.html')">
+                        <div class="game-item" onclick="openGameFull('小游戏/行星匹配战.html')">
                             <span>🪐</span>行星匹配战
                         </div>
-                        <div class="game-item" onclick="openGameFull('../../小游戏/行星身份迷宫.html')">
+                        <div class="game-item" onclick="openGameFull('小游戏/行星身份迷宫.html')">
                             <span>🧩</span>行星身份迷宫
                         </div>
-                        <div class="game-item" onclick="openGameFull('../../小游戏/行星知识转盘问答.html')">
+                        <div class="game-item" onclick="openGameFull('小游戏/行星知识转盘问答.html')">
                             <span>🎡</span>行星知识转盘小问答
                         </div>
-                        <div class="game-item" onclick="openGameFull('../../物理实验/单摆1.html')">
+                        <div class="game-item" onclick="openGameFull('物理实验/单摆1.html')">
                             <span>⚖️</span>物理单摆交互小实验
                         </div>
                     </div>
@@ -454,7 +452,6 @@
     <script src="assets/js/owl.carousel.min.js"></script>
     <script src="assets/js/jquery.magnific-popup.js"></script>
     <script src="assets/js/jquery.easing.1.3.js"></script>
-    <script src="assets/css/slick/slick.js"></script>
     <script src="assets/css/slick/slick.min.js"></script>
     <script src="assets/js/jquery.collapse.js"></script>
     <script src="assets/js/bootsnav.js"></script>
@@ -522,6 +519,11 @@
         // 加载动画
         $(window).on('load', function(){
             setTimeout(()=>{$('#loading').fadeOut()}, 700);
+        });
+
+        // 强制初始化轮播，解决GitHub加载延迟问题
+        $(function(){
+            $('.hello_slid').slick({autoplay:true,dots:true,arrows:false});
         });
     </script>
 </body>
