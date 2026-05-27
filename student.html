@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>青科畅学科普云平台学生端</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <!--Google Font link-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/slick/slick.css">
+    <link rel="stylesheet" href="assets/css/slick/slick-theme.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/iconfont.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="assets/css/bootsnav.css">
+
+    <!--Theme custom css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!--Theme Responsive css-->
+    <link rel="stylesheet" href="assets/css/responsive.css" />
+
+    <style>
+        /* 科普小游戏美化样式 */
+        .game-list {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .game-item {
+            display: flex;
+            align-items: center;
+            background: #ffffff;
+            padding: 16px 24px;
+            margin: 12px 0;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            font-size: 18px;
+            font-weight: 500;
+            transition: all 0.3s;
+            cursor: pointer;
+            text-decoration: none !important;
+            color: #222;
+        }
+        .game-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+            background: #f8f9ff;
+        }
+        .game-item span {
+            margin-right: 14px;
+            font-size: 24px;
+        }
+
+        /* 游戏全屏容器（覆盖整个屏幕） */
+        #gameFullContainer {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            z-index: 99999;
+        }
+        #gameFrame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .exit-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #ff4444;
+            color: #fff;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body data-spy="scroll" data-target=".navbar-collapse">
+    <!-- Preloader -->
+    <div id="loading">
+        <div id="loading-center">
+            <div id="loading-center-absolute">
+                <div class="object" id="object_one"></div>
+                <div class="object" id="object_two"></div>
+                <div class="object" id="object_three"></div>
+                <div class="object" id="object_four"></div>
+            </div>
+        </div>
+    </div><!--End off Preloader -->
+
+    <div class="culmn">
+        <!--Home page style-->
+        <nav class="navbar navbar-default bootsnav navbar-fixed">
+            <!-- Start Top Search -->
+            <div class="top-search">
+                <div class="container">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                        <input type="text" class="form-control" placeholder="Search">
+                        <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+                    </div>
+                </div>
+            </div>
+            <!-- End Top Search -->
+
+            <div class="container">
+                <div class="attr-nav">
+                    <ul>
+                        <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
+                    </ul>
+                </div>
+
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <a class="navbar-brand" href="#brand">
+                        <img src="assets/images/logo.png" class="logo" alt="">
+                    </a>
+                </div>
+                <!-- End Header Navigation -->
+
+                <!-- navbar menu -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#home">主页</a></li>
+                        <li><a href="#features">科普小游戏</a></li>
+                        <li><a href="#video">科普视频</a></li>
+                        <li><a href="javascript:openChatWindow()">青科趣学</a></li>
+                        <li><a href="#contact">联系方式</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+        </nav>
+
+        <!--Home Sections-->
+        <section id="home" class="home bg-black fix">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="main_home text-center">
+                        <div class="col-md-12">
+                            <div class="hello_slid">
+                                <div class="slid_item">
+                                    <div class="home_text ">
+                                        <h2 class="text-white"><strong>欢迎使用</strong></h2>
+                                        <h1 class="text-white">青科畅学科普云平台学生端</h1>
+                                        <h3 class="text-white">- AI赋能游戏化课程-</h3>
+                                    </div>
+                                </div>
+                                <div class="slid_item">
+                                    <div class="home_text ">
+                                        <h2 class="text-white"> <strong>欢迎使用&nbsp;</strong></h2>
+                                        <h1 class="text-white">青科畅学科普云平台学生端</h1>
+                                        <h3 class="text-white">- AI赋能游戏化课程-</h3>
+                                    </div>
+                                </div>
+                                <div class="slid_item">
+                                    <div class="home_text ">
+                                        <h2 class="text-white"><strong>欢迎使用</strong></h2>
+                                        <h1 class="text-white">青科畅学科普云平台学生端</h1>
+                                        <h3 class="text-white">- AI赋能游戏化课程-</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--Featured Section-->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="row">
+                    <br><br>
+                    <h2 class="text-uppercase text-center">科普小游戏入口</h2>
+                    <p class="text-center" style="font-size: 16px; margin-top: 10px;">点击直接全屏体验，退出返回主页</p>
+                    <br>
+
+                    <div class="game-list">
+                        <!-- ✅ 路径正确，可正常打开 -->
+                        <div class="game-item" onclick="openGameFull('红树林探险队-弹涂鱼大冒险.html')">
+                            <span>🌊</span>红树林探险---弹涂鱼大冒险
+                        </div>
+                        <div class="game-item" onclick="openGameFull('../../小游戏/行星匹配战.html')">
+                            <span>🪐</span>行星匹配战
+                        </div>
+                        <div class="game-item" onclick="openGameFull('../../小游戏/行星身份迷宫.html')">
+                            <span>🧩</span>行星身份迷宫
+                        </div>
+                        <div class="game-item" onclick="openGameFull('../../小游戏/行星知识转盘问答.html')">
+                            <span>🎡</span>行星知识转盘小问答
+                        </div>
+                        <div class="game-item" onclick="openGameFull('../../物理实验/单摆1.html')">
+                            <span>⚖️</span>物理单摆交互小实验
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 游戏全屏容器 -->
+        <div id="gameFullContainer">
+            <button class="exit-btn" onclick="closeGameFull()">×</button>
+            <iframe id="gameFrame"></iframe>
+        </div>
+
+        <!-- 视频列表区 -->
+        <section id="video" class="video-container">
+            <h2>科普视频专区</h2>
+            <div class="video-grid">
+                <div class="video-card" data-src="assets/videos/v1.mp4" data-title="生物博物馆之豚鼠——为什么称它为荷兰猪呢？">
+                    <div class="cover">
+                        <img src="assets/images/cover1.jpg" alt="封面">
+                        <span class="play-icon">▶</span>
+                    </div>
+                    <div class="info">
+                        <h3>生物博物馆之豚鼠——为什么称它为荷兰猪呢？</h3>
+                        <p>2026-05-20</p>
+                    </div>
+                </div>
+                <div class="video-card" data-src="assets/videos/v2.mp4" data-title="生物博物馆之苏门羚——山地生态的重要一员">
+                    <div class="cover">
+                        <img src="assets/images/cover1.jpg" alt="封面">
+                        <span class="play-icon">▶</span>
+                    </div>
+                    <div class="info">
+                        <h3>生物博物馆之苏门羚——山地生态的重要一员。</h3>
+                        <p>2026-05-18</p>
+                    </div>
+                </div>
+                <div class="video-card" data-src="assets/videos/v3.mp4" data-title="生物博物馆之穿山甲——森林天然的防虫卫士">
+                    <div class="cover">
+                        <img src="assets/images/cover1.jpg" alt="封面">
+                        <span class="play-icon">▶</span>
+                    </div>
+                    <div class="info">
+                        <h3>生物博物馆之穿山甲——森林天然的防虫卫士。</h3>
+                        <p>2026-05-15</p>
+                    </div>
+                </div>
+                <div class="video-card" data-src="assets/videos/v4.mp4" data-title="生物博物馆之豹猫——是大自然珍贵的山野精灵">
+                    <div class="cover">
+                        <img src="assets/images/cover1.jpg" alt="封面">
+                        <span class="play-icon">▶</span>
+                    </div>
+                    <div class="info">
+                        <h3>生物博物馆之豹猫——是大自然珍贵的山野精灵。</h3>
+                        <p>2026-05-15</p>
+                    </div>
+                </div>
+                <div class="video-card" data-src="assets/videos/v5.mp4" data-title="生物博物馆之梅花鹿——是自然生态中极具代表性的珍稀兽类">
+                    <div class="cover">
+                        <img src="assets/images/cover1.jpg" alt="封面">
+                        <span class="play-icon">▶</span>
+                    </div>
+                    <div class="info">
+                        <h3>生物博物馆之梅花鹿——是自然生态中极具代表性的珍稀兽类。</h3>
+                        <p>2026-05-15</p>
+                    </div>
+                </div>
+                <div class="video-card" data-src="assets/videos/v6.mp4" data-title="生物博物馆之灰喜鹊——是森林里黑顶蓝尾小绅士">
+                    <div class="cover">
+                        <img src="assets/images/cover1.jpg" alt="封面">
+                        <span class="play-icon">▶</span>
+                    </div>
+                    <div class="info">
+                        <h3>生物博物馆之灰喜鹊——是森林里黑顶蓝尾小绅士。</h3>
+                        <p>2026-05-15</p>
+                    </div>
+                </div>
+                <div class="video-card" data-src="assets/videos/v7.mp4" data-title="生物博物馆之中杓(sháo)鹬(yù)——是湿地探食的黑顶弯嘴精灵">
+                    <div class="cover">
+                        <img src="assets/images/cover1.jpg" alt="封面">
+                        <span class="play-icon">▶</span>
+                    </div>
+                    <div class="info">
+                        <h3>生物博物馆之中杓(sháo)鹬(yù)——是湿地探食的黑顶弯嘴精灵。</h3>
+                        <p>2026-05-15</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 弹窗播放器 -->
+        <div id="video-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h3 id="modal-title"></h3>
+                <video id="main-player" controls></video>
+            </div>
+        </div>
+
+        <!-- 视频样式 -->
+        <style>
+            .video-container { width: 90%; margin: 40px auto; }
+            .video-container h2 { margin-bottom: 20px; text-align: center; }
+            .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+            .video-card { cursor: pointer; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.2s; }
+            .video-card:hover { transform: translateY(-5px); }
+            .cover { position: relative; width: 100%; height: 180px; background: #eee; overflow: hidden; }
+            .cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+            .play-icon { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; border-radius: 50%; background: rgba(0,0,0,0.6); color: #fff; font-size: 24px; display: flex; align-items: center; justify-content: center; z-index: 10; pointer-events: none; }
+            .video-card:hover .play-icon { background: rgba(0,0,0,0.8); transform: translate(-50%, -50%) scale(1.1); }
+            .info { padding: 10px; }
+            .info h3 { font-size: 15px; margin: 0 0 5px; }
+            .info p { font-size: 12px; color: #888; margin: 0; }
+            .modal { display: none; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); }
+            .modal-content { width: 70%; margin: 5% auto; background: #fff; padding: 20px; border-radius: 8px; position: relative; }
+            .close-btn { position: absolute; top: 15px; right: 20px; font-size: 28px; cursor: pointer; }
+            #main-player { width: 100%; margin-top: 15px; }
+        </style>
+
+        <!-- 绿色行动条 + 页脚 -->
+        <section id="action" class="action bg-primary roomy-40">
+            <div class="container">
+                <div class="row">
+                    <div class="maine_action">
+                        <div class="col-md-8">
+                            <div class="action_item text-center">
+                                <h2 class="text-white text-uppercase">科普点亮童心，科技助力成长</h2>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="action_btn text-left sm-text-center">
+                                <a href="" class="btn btn-default">了解更多</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer id="contact" class="footer action-lage bg-black p-top-80">
+            <div class="container">
+                <div class="row">
+                    <div class="widget_area">
+                        <div class="col-md-3">
+                            <div class="widget_item widget_about">
+                                <h5 class="text-white">关于我们</h5>
+                                <p class="m-top-20">青科畅学科普云平台专注青少年科普教育，以趣味、互动、实践为核心，让科学走进生活，让知识陪伴成长。</p>
+                                <div class="widget_ab_item m-top-30">
+                                    <div class="item_icon"><i class="fa fa-location-arrow"></i></div>
+                                    <div class="widget_ab_item_text">
+                                        <h6 class="text-white">地址</h6>
+                                        <p>岭南师范学院</p>
+                                    </div>
+                                </div>
+                                <div class="widget_ab_item m-top-30">
+                                    <div class="item_icon"><i class="fa fa-phone"></i></div>
+                                    <div class="widget_ab_item_text">
+                                        <h6 class="text-white">电话</h6>
+                                        <p>1234 5678 90</p>
+                                    </div>
+                                </div>
+                                <div class="widget_ab_item m-top-30">
+                                    <div class="item_icon"><i class="fa fa-envelope-o"></i></div>
+                                    <div class="widget_ab_item_text">
+                                        <h6 class="text-white">邮箱</h6>
+                                        <p>your@email.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="widget_item widget_latest sm-m-top-50">
+                                <h5 class="text-white">科普动态</h5>
+                                <div class="widget_latst_item m-top-30">
+                                    <div class="item_icon"><img src="assets/images/ltst-img-1.jpg" alt="" /></div>
+                                    <div class="widget_latst_item_text">
+                                        <p>趣味科普课堂走进乡村校园</p>
+                                        <a href="">实践纪实</a>
+                                    </div>
+                                </div>
+                                <div class="widget_latst_item m-top-30">
+                                    <div class="item_icon"><img src="assets/images/图片9.jpg" alt="" /></div>
+                                    <div class="widget_latst_item_text">
+                                        <p>线上科普不停学，云端陪伴共成长</p>
+                                        <a href="">疫情特辑</a>
+                                    </div>
+                                </div>
+                                <div class="widget_latst_item m-top-30">
+                                    <div class="item_icon"><img src="assets/images/ltst-img-3.jpg" alt="" /></div>
+                                    <div class="widget_latst_item_text">
+                                        <p>动手实验，让科学看得见摸得着</p>
+                                        <a href="">实验课堂</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="widget_item widget_service sm-m-top-50">
+                                <h5 class="text-white">平台服务</h5>
+                                <ul class="m-top-20">
+                                    <li class="m-top-20"><a href=""><i class="fa fa-angle-right"></i> 学生趣味课程</a></li>
+                                    <li class="m-top-20"><a href=""><i class="fa fa-angle-right"></i> 教师备课资源</a></li>
+                                    <li class="m-top-20"><a href=""><i class="fa fa-angle-right"></i> 科普作品分享</a></li>
+                                    <li class="m-top-20"><a href=""><i class="fa fa-angle-right"></i> 实践活动纪实</a></li>
+                                    <li class="m-top-20"><a href=""><i class="fa fa-angle-right"></i> 线上线下课堂</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="widget_item widget_newsletter sm-m-top-50">
+                                <h5 class="text-white">订阅资讯</h5>
+                                <form class="form-inline m-top-30">
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="输入您的邮箱">
+                                        <button type="submit" class="btn text-center"><i class="fa fa-arrow-right"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main_footer fix bg-mega text-center p-top-40 p-bottom-30 m-top-80">
+                <div class="col-md-12">
+                    <p class="wow fadeInRight" data-wow-duration="1s">
+                        青科畅学科普云平台 © 2026 版权所有
+                    </p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- JS includes -->
+    <script src="assets/js/vendor/jquery-1.11.2.min.js"></script>
+    <script src="assets/js/vendor/bootstrap.min.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.js"></script>
+    <script src="assets/js/jquery.easing.1.3.js"></script>
+    <script src="assets/css/slick/slick.js"></script>
+    <script src="assets/css/slick/slick.min.js"></script>
+    <script src="assets/js/jquery.collapse.js"></script>
+    <script src="assets/js/bootsnav.js"></script>
+    <script src="assets/js/plugins.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- 视频播放JS + 游戏全屏控制 -->
+    <script>
+        // 视频播放
+        const cards = document.querySelectorAll('.video-card');
+        const modal = document.getElementById('video-modal');
+        const player = document.getElementById('main-player');
+        const modalTitle = document.getElementById('modal-title');
+        const closeBtn = document.querySelector('.close-btn');
+
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                const src = card.dataset.src;
+                const title = card.dataset.title;
+                player.src = src;
+                modalTitle.innerText = title;
+                modal.style.display = 'block';
+                player.load();
+                player.play();
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+            player.pause();
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                player.pause();
+            }
+        });
+
+        // ✅ 恢复青科趣学有效链接
+        function openChatWindow() {
+            window.open(
+                "https://www.coze.cn/store/agent/7638896379419148322?bot_id=true",
+                "QingkeChat",
+                "width=420,height=650,top=100,right=50,scrollbars=yes"
+            );
+        }
+
+        // 打开游戏全屏（所有游戏统一使用）
+        function openGameFull(url) {
+            const frame = document.getElementById("gameFrame");
+            const container = document.getElementById("gameFullContainer");
+            frame.src = url;
+            container.style.display = "block";
+        }
+
+        // 关闭游戏全屏
+        function closeGameFull() {
+            const frame = document.getElementById("gameFrame");
+            const container = document.getElementById("gameFullContainer");
+            frame.src = "";
+            container.style.display = "none";
+        }
+
+        // 加载动画
+        $(window).on('load', function(){
+            setTimeout(()=>{$('#loading').fadeOut()}, 700);
+        });
+    </script>
+</body>
+</html>
